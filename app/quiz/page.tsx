@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import genres, { quizzesNumber, quizzesElement, QuestionType } from "../../data/quiz";
+import { quizzesNumber, quizzesElement, QuestionType } from "../../data/quiz";
 import Link from "next/link";
 import ResultScreen from "../ResultScreen/page";
 
