@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { quizzesNumber, quizzesElement, QuestionType } from "../../data/quiz";
+import genres, { quizzesNumber, quizzesElement, QuestionType } from "../../data/quiz";
 import Link from "next/link";
-import ResultScreen from "../ResultScreen/page";
+import ResultScreen from "./ResultScreen";
 
 export default function Quiz() {
   const searchParams = useSearchParams();
