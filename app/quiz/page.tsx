@@ -9,10 +9,11 @@ import ResultScreen from "./ResultScreen";
 function QuizComponent() {
   const searchParams = useSearchParams();
   const genre = searchParams.get("genre") as GenreType | null;
-  const keyword = searchParams.get("keyword");
+  const keyword = searchParams.get("keyword") ?? undefined; // nullをundefinedに変換
   const [questions, setQuestions] = useState<QuestionType[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+  const [finalAnswer, setFinalAnswer] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     if (genre && quizzesData[genre]) {
@@ -25,11 +26,12 @@ function QuizComponent() {
       const question = questions[currentQuestion];
       const answerIndex = question.answers.indexOf(answer);
       const nextQuizIndex = question.nextQuizIndexes[answerIndex];
-      const finalAnswer = question.finalAnswer[answerIndex];
+      const finalAnswerIndex = question.finalAnswer[answerIndex];
 
-      if (finalAnswer !== -1) {
-        console.log("finalAnswer", finalAnswer);
-        setIsCorrect(quizzesData[genre].keywords[finalAnswer] === keyword);
+      if (finalAnswerIndex !== -1) {
+        const finalAnswerKeyword = quizzesData[genre].keywords[finalAnswerIndex].toString();
+        setIsCorrect(finalAnswerKeyword === keyword);
+        setFinalAnswer(finalAnswerKeyword);
       } else {
         setCurrentQuestion(nextQuizIndex);
       }
@@ -37,7 +39,7 @@ function QuizComponent() {
   };
 
   if (isCorrect !== null) {
-    return <ResultScreen isCorrect={isCorrect} />;
+    return <ResultScreen isCorrect={isCorrect} keyword={keyword} finalAnswer={finalAnswer} />;
   }
 
   if (questions.length === 0) {
