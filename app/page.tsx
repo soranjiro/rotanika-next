@@ -2,25 +2,22 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import genres, { keywordsNumber, keywordsElement } from "../data/quiz";
+import genres, { quizzesData, GenreType } from "../data/quiz";
 
 export default function Home() {
-  const [selectedGenre, setSelectedGenre] = useState<string | null>(null);
+  const [selectedGenre, setSelectedGenre] = useState<GenreType | null>(null);
   const [selectedKeyword, setSelectedKeyword] = useState<string | null>(null);
   const router = useRouter();
 
-  const getRandomKeyword = (keywords: string[]) => {
-    const randomIndex = Math.floor(Math.random() * keywords.length);
-    return keywords[randomIndex];
+  const handleGenreClick = (genre: GenreType) => {
+    setSelectedGenre(genre);
+    const keywords = quizzesData[genre].keywords.map(String);
+    setSelectedKeyword(getRandomKeyword(keywords));
   };
 
-  const handleGenreClick = (genre: string) => {
-    setSelectedGenre(genre);
-    if (genre === "数") {
-      setSelectedKeyword(getRandomKeyword(keywordsNumber.map(String))); // 数字を文字列に変換
-    } else if (genre === "原子") {
-      setSelectedKeyword(getRandomKeyword(keywordsElement.map(String))); // 数字を文字列に変換
-    }
+  const getRandomKeyword = (keywords: string[]): string => {
+    const randomIndex = Math.floor(Math.random() * keywords.length);
+    return keywords[randomIndex];
   };
 
   const handleClosePopup = () => {
@@ -45,6 +42,7 @@ export default function Home() {
             key={genre}
             onClick={() => handleGenreClick(genre)}
             className="button"
+            type="button"
           >
             {genre}
           </button>
@@ -55,7 +53,7 @@ export default function Home() {
         <div className="popup-overlay">
           <div className="popup-content">
             <h2>お題: {selectedKeyword}</h2>
-            <button onClick={handleClosePopup}>
+            <button onClick={handleClosePopup} type="button">
               クイズを始める
             </button>
           </div>
