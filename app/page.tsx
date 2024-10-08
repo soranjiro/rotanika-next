@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { FaGithub } from "react-icons/fa"; // GitHubアイコンのインポート
 import genres, { quizzesData, GenreType } from "../data/quiz";
 
 export default function Home() {
@@ -59,6 +60,12 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      <footer className="footer">
+        <a href="https://github.com/soranjiro/rotanika-next" target="_blank" rel="noopener noreferrer">
+          <FaGithub size={30} />
+        </a>
+      </footer>
     </div>
   );
 }

@@ -129,6 +129,23 @@ body {
   background: #2563eb;
 }
 
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.footer a {
+  color: #6db1ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #0070f3;
+}
+
 /* QuizScreen */
 .quiz-container {
   display: flex;
