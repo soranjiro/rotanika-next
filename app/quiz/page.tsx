@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import genres, { quizzesNumber, quizzesElement, QuestionType } from "../../data/quiz";
+import { quizzesNumber, quizzesElement, QuestionType } from "../../data/quiz";
 import Link from "next/link";
 import ResultScreen from "./ResultScreen";
 
-export default function Quiz() {
+function QuizComponent() {
   const searchParams = useSearchParams();
   const genre = searchParams.get("genre");
   const keyword = searchParams.get("keyword");
@@ -68,5 +68,13 @@ export default function Quiz() {
         ))}
       </div>
     </div>
+  );
+}
+
+export default function Quiz() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <QuizComponent />
+    </Suspense>
   );
 }
