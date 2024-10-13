@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from 'next/image';
 import { FaGithub } from "react-icons/fa"; // GitHubアイコンのインポート
 import genres, { quizzesData, GenreType } from "../data/quiz";
 import numberDevil from "../images/numberDevil.png";
-import Image from 'next/image';
 
 export default function Home() {
   const [selectedGenre, setSelectedGenre] = useState<GenreType | null>(null);
