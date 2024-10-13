@@ -1,3 +1,8 @@
+import { StaticImageData } from "next/image";
+import numberDevil from "../images/numberDevil.png";
+import elementDevil from "../images/elementDevil.png";
+import jukugoDevil from "../images/jukugoDevil.png";
+
 const genres = ['数', '原子', '四字熟語'] as const;
 type GenreType = typeof genres[number];
 
@@ -170,10 +175,10 @@ const details4Jukugo = [
                       ];
 
 
-const quizzesData: Record<GenreType, { quizzes: QuestionType[]; keywords: (string | number)[]; details?: string[] }> = {
-  '数': { quizzes: quizzesNumber, keywords: keywordsNumber },
-  '原子': { quizzes: quizzesElement, keywords: keywordsElement },
-  '四字熟語': { quizzes: quizzes4Jukugo, keywords: keywords4Jukugo, details: details4Jukugo },
+const quizzesData: Record<GenreType, { quizzes: QuestionType[]; keywords: (string | number)[]; devilImage?: StaticImageData; details?: string[] }> = {
+  '数': { quizzes: quizzesNumber, keywords: keywordsNumber, devilImage: numberDevil },
+  '原子': { quizzes: quizzesElement, keywords: keywordsElement, devilImage: elementDevil },
+  '四字熟語': { quizzes: quizzes4Jukugo, keywords: keywords4Jukugo, devilImage: jukugoDevil, details: details4Jukugo },
 };
 
 export default genres;

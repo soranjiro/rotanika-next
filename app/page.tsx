@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { FaGithub } from "react-icons/fa"; // GitHubアイコンのインポート
 import genres, { quizzesData, GenreType } from "../data/quiz";
+import numberDevil from "../images/numberDevil.png";
+import Image from 'next/image';
 
 export default function Home() {
   const [selectedGenre, setSelectedGenre] = useState<GenreType | null>(null);
@@ -27,6 +29,13 @@ export default function Home() {
     }
   };
 
+  const getGenreImage = (genre: GenreType | null = selectedGenre) => {
+    if (genre) {
+      return quizzesData[genre].devilImage || numberDevil;
+    }
+    return numberDevil;
+  };
+
   return (
     <div className="main-container">
       <h1 className="title">ROTANIKA</h1>
@@ -37,15 +46,16 @@ export default function Home() {
         <br />
         ただし、Rotanikaはまだ未熟なので、お題はこちらで決めます。
       </p>
-      <div className="button-container">
+      <div className="genre-container">
         {genres.map((genre) => (
           <button
             key={genre}
             onClick={() => handleGenreClick(genre)}
-            className="button"
+            className="button genre-button"
             type="button"
           >
-            {genre}
+            <Image src={getGenreImage(genre)} alt={genre} className="genre-image" />
+            <span className="genre-text">{genre}</span>
           </button>
         ))}
       </div>
@@ -53,7 +63,10 @@ export default function Home() {
       {selectedKeyword && (
         <div className="popup-overlay">
           <div className="popup-content">
-            <h2>お題: {selectedKeyword}</h2>
+            <Image src={getGenreImage()} alt="Sample" className="popup-image" />
+            <h2>お題はこれだ!
+              <br />頑張って我輩に答えを当てさせるんだな</h2>
+            <h2>{selectedKeyword}</h2>
             <button onClick={handleClosePopup} type="button">
               クイズを始める
             </button>
@@ -62,7 +75,11 @@ export default function Home() {
       )}
 
       <footer className="footer">
-        <a href="https://github.com/soranjiro/rotanika-next" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://github.com/soranjiro/rotanika-next"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FaGithub size={30} />
         </a>
       </footer>

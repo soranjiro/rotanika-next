@@ -5,6 +5,11 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { quizzesData, QuestionType, GenreType } from "../../data/quiz";
 import ResultScreen from "./ResultScreen";
+import Image from 'next/image';
+import numberDevil from "../../images/numberDevil.png";
+import elementDevil from "../../images/elementDevil.png";
+
+
 
 function QuizComponent() {
   const searchParams = useSearchParams();
@@ -38,6 +43,13 @@ function QuizComponent() {
     }
   };
 
+  const getGenreImage = () => {
+    if (genre && quizzesData[genre]) {
+      return quizzesData[genre].devilImage || numberDevil;
+    }
+    return numberDevil;
+  };
+
   if (isCorrect !== null) {
     return <ResultScreen isCorrect={isCorrect} keyword={keyword} finalAnswer={finalAnswer} />;
   }
@@ -57,6 +69,7 @@ function QuizComponent() {
 
   return (
     <div className="quiz-container">
+      <Image src={getGenreImage()} alt="Sample" className="popup-image" />
       <h1 className="quiz-title">{questions[currentQuestion].question}</h1>
       <h2 className="quiz-subtitle">お題: {keyword}</h2>
       <div className="mt-4">

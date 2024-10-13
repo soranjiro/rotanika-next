@@ -27,6 +27,44 @@ body {
   }
 }
 
+.genre-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.genre-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.genre-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.genre-text {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}
+
+.genre-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .popup-overlay {
   position: fixed;
   inset: 0;
@@ -34,6 +72,12 @@ body {
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.5);
+}
+
+.popup-image {
+  width: 300px;
+  height: auto;
+  margin: 0 auto;
 }
 
 .popup-content {
@@ -192,6 +236,7 @@ body {
 .result-title {
   font-size: 3rem;
   font-weight: bold;
+  text-align: center;
 }
 
 .result-link {
