@@ -7,7 +7,6 @@ import { quizzesData, QuestionType, GenreType } from "../../data/quiz";
 import ResultScreen from "./ResultScreen";
 import Image from 'next/image';
 import numberDevil from "../../images/numberDevil.png";
-import elementDevil from "../../images/elementDevil.png";
 
 
 
