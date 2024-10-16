@@ -44,7 +44,7 @@ export default function Home() {
         <br />
         Rotanikaの質問に正確に答えて、あなたのお題を答えさせてあげよう！
         <br />
-        ただし、Rotanikaはまだ未熟なので、お題はこちらで決めます。
+        ただし、Rotanikaはまだ未熟なので、お題はこちらで決めますわよ。
       </p>
       <div className="genre-container">
         {genres.map((genre) => (
