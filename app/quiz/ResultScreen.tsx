@@ -29,7 +29,7 @@ const ResultScreen: React.FC<ResultScreenProps> = ({ isCorrect, keyword, finalAn
       <h1 className="result-title">
         {isCorrect
           ? "さすが我輩だ！"
-          : "ちゃんと答えてくれなきゃ分からないじゃないか！！"}
+          : "ちゃんと答えてくれなきゃ分からないじゃないか！！ばかもの！！"}
       </h1>
       <h2 className="result-subtitle">あなたのお題: {keyword}</h2>
       <h2 className="result-subtitle">
