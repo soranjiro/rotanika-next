@@ -3,14 +3,14 @@ import numberDevil from "../images/numberDevil.png";
 import elementDevil from "../images/elementDevil.png";
 import jukugoDevil from "../images/jukugoDevil.png";
 
-const genres = ['数', '原子', '四字熟語'] as const;
+const genres = ['Number', 'Element', 'Yojijukugo'] as const;
 type GenreType = typeof genres[number];
 
 /**
- * question: 質問文
- * answers: 選択肢
- * nextQuizIndexes: 選択肢ごとの次のクイズのインデックス.
- * finalAnswer: 選択肢ごとの最終的な答えのインデックス.(-1の場合は次のクイズへ)
+ * question: Question text
+ * answers: Choices
+ * nextQuizIndexes: Index of the next quiz for each choice.
+ * finalAnswer: Final answer index for each choice. (-1 means go to the next quiz)
  */
 
 interface QuestionType {
@@ -22,91 +22,91 @@ interface QuestionType {
 
 const quizzesNumber: QuestionType[] = [
   {
-    question: '奇数ですか',
+    question: 'Is it an odd number?',
     answers: ['yes', 'no'],
     nextQuizIndexes: [1, 4],
     finalAnswer: [-1, -1]
   },
   {
-    question: '素数ですか',
+    question: 'Is it a prime number?',
     answers: ['yes', 'no'],
     nextQuizIndexes: [2, 3],
     finalAnswer: [-1, -1]
   },
   {
-    question: 'メルセンヌ素数ですか',
+    question: 'Is it a Mersenne prime?',
     answers: ['yes', 'no'],
     nextQuizIndexes: [0, 1],
     finalAnswer: [0, 1]
   },
   {
-    question: '約数は7つ以上ありますか',
+    question: 'Does it have more than 7 divisors?',
     answers: ['yes', 'no'],
     nextQuizIndexes: [0, 1],
     finalAnswer: [2, 3]
   },
   {
-    question: '平方数ですか',
+    question: 'Is it a perfect square?',
     answers: ['yes', 'no'],
     nextQuizIndexes: [5, 6],
     finalAnswer: [-1, -1]
   },
   {
-    question: '2^nで表せますか',
+    question: 'Can it be expressed as 2^n?',
     answers: ['yes', 'no'],
     nextQuizIndexes: [0, 1],
     finalAnswer: [4, 5]
   },
   {
-    question: '完全数ですか',
+    question: 'Is it a perfect number?',
     answers: ['yes', 'no'],
     nextQuizIndexes: [0, 1],
     finalAnswer: [6, 7]
   },
-  // 他の問題を追加
+  // Add other questions
 ];
 
 const keywordsNumber = [2147483647, 6904303451, 9458583811, 2047088711, 4294967296, 2952183556, 8589869056, 6655983616];
 
 const quizzesElement: QuestionType[] = [
   {
-    question: '常温で気体ですか',
+    question: 'Is it a gas at room temperature?',
     answers: ['yes', 'no'],
     nextQuizIndexes: [1, 4],
     finalAnswer: [-1, -1]
   },
   {
-    question: '-150°Fでも気体ですか',
+    question: 'Is it a gas even at -150°F?',
     answers: ['yes', 'no'],
     nextQuizIndexes: [2, 3],
     finalAnswer: [-1, -1]
   },
   {
-    question: 'カメラのフラッシュに使われていますか',
+    question: 'Is it used in camera flashes?',
     answers: ['yes', 'no'],
     nextQuizIndexes: [0, 1],
     finalAnswer: [0, 1]
   },
   {
-    question: '気体の中で最も重たい元素ですか',
+    question: 'Is it the heaviest element among gases?',
     answers: ['yes', 'no'],
     nextQuizIndexes: [0, 1],
     finalAnswer: [2, 3]
   },
   {
-    question: '原子番号は100以下ですか',
+    question: 'Is its atomic number less than 100?',
     answers: ['yes', 'no'],
     nextQuizIndexes: [5, 6],
     finalAnswer: [-1, -1]
   },
   {
-    question: 'ZrSiO4に4価のこの原子のイオンが固溶した顔料は黄色ですか',
+    question: 'Is the pigment with this element’s ion in ZrSiO4 yellow?',
     answers: ['yes', 'no'],
     nextQuizIndexes: [0, 1],
     finalAnswer: [4, 5]
   },
   {
-    question: '発見したのは女性ですか',
+    question: 'Was it discovered by a woman?',
     answers: ['yes', 'no'],
     nextQuizIndexes: [0, 1],
     finalAnswer: [6, 7]
@@ -118,43 +118,43 @@ const keywordsElement = ['Kr', 'Xe', 'Rn', 'Cl', 'Pr', 'Dy', 'Mt', 'Fl'];
 
 const quizzes4Jukugo: QuestionType[] = [
   {
-    question: '8文字以上ですか',
+    question: 'Is it more than 8 characters long when written in hiragana?',
     answers: ['yes', 'no'],
     nextQuizIndexes: [1, 4],
     finalAnswer: [-1, -1]
   },
   {
-    question: 'ひらがなにした時同じ文字を含みますか',
+    question: 'Does it contain the same character when written in hiragana?',
     answers: ['yes', 'no'],
     nextQuizIndexes: [2, 3],
     finalAnswer: [-1, -1]
   },
   {
-    question: '出典はどちらですか',
+    question: 'What is the source?',
     answers: ['『楚辞』「漁夫」', '『漢書』「主父偃伝」'],
     nextQuizIndexes: [0, 1],
     finalAnswer: [0, 1]
   },
   {
-    question: '建物に対して使う言葉ですか',
+    question: 'Is it used for buildings?',
     answers: ['yes', 'no'],
     nextQuizIndexes: [0, 1],
     finalAnswer: [2, 3]
   },
   {
-    question: '服装に関係しますか',
+    question: 'Is it related to clothing?',
     answers: ['yes', 'no'],
     nextQuizIndexes: [5, 6],
     finalAnswer: [-1, -1]
   },
   {
-    question: '楊朱の言葉から生まれましたか',
+    question: 'Did it originate from the words of Yang Zhu?',
     answers: ['yes', 'no'],
     nextQuizIndexes: [0, 1],
     finalAnswer: [4, 5]
   },
   {
-    question: 'この人は熱心ですか',
+    question: 'Is this person enthusiastic?',
     answers: ['yes', 'no'],
     nextQuizIndexes: [0, 1],
     finalAnswer: [6, 7]
@@ -164,21 +164,21 @@ const quizzes4Jukugo: QuestionType[] = [
 const keywords4Jukugo = ['濯纓濯足', '獣聚鳥散', '黝堊丹漆', '零絹尺楮', '狗吠緇衣', '靡衣婾食', '北轅適楚', '握髪吐哺'];
 
 const details4Jukugo = [
-                        '【たくえいたくそく】世の成り行きに応じて進退すること。\n「滄浪（川の名）の水清（す）まば以て吾が纓を濯う可し、 滄浪の水濁らば以て吾が足を濯ふ可し」という孟子の一句\n出典：『楚辞』「漁夫」',
-                        '【じゅうしゅうちょうさん】統率や規律の取れていない集まりのたとえ。\n出典：『漢書』「主父偃伝」',
-                        '【ゆうあくたんしつ】建物が古いしきたりにかなって作られていることをいう。\n「黝」は青みを帯びた黒色、「堊」は白色、「丹」は赤色、「漆」は黒色または漆塗りのこと\n出典：李覯「袁州学記」',
-                        '【れいけんせきちょ】書画の小片。絹や紙のきれはし。\n「零」と「尺」はどちらも少しという意味。「零絹」は布の小さな切れ端のこと。「尺楮」は紙の切れ端のこと。「楮」は和紙の原料に使われる植物。',
-                        '【くはいしい】いつも着ている服装を変えれば疑われるのは当然であるということ。\n出典：『韓非子』説林･下．楊朱ようしゅの弟の楊布ようふが白衣で外出したところ雨に降られた。そこで黒い衣に着替えて帰ってくると楊布とは気づかずに飼い犬が吠えた。怒った楊布が犬を殴ろうとすると、楊朱は「白い犬が黒くなって帰ってきたら、お前も怪しむだろう」と言ったという説話から。',
-                        '【びいとうしょく】美しい着物を好んで一時の食を貪って将来のことを考えないこと。\n出典	『漢書』「韓信伝」',
-                        '【ほけんてきそ】志と行動が相反するたとえ。\n出典：『申鑒』「雑言・下」',
-                        '【あくはつとほ】すぐれた人材を求めるのに熱心なこと\n出典：出典『韓詩外伝』三。「一沐三たび髪を握り、一飯三たび哺を吐きて猶お天下の士を失わんことを恐る」',
+                        '【takueitakusoku】To advance or retreat according to the course of the world.\n"If the water of the Canglang (name of a river) is clear, I can wash my tassels; if the water of the Canglang is muddy, I can wash my feet." - Mencius\nSource: "Chu Ci" "Fisherman"',
+                        '【jousyoutyousan】A metaphor for an unorganized gathering.\nSource: "Han Shu" "Zhu Fu Yan Zhuan"',
+                        '【yuuakutannsitsu】Buildings are made according to old customs.\n"黝" is a bluish-black color, "堊" is white, "丹" is red, and "漆" is black or lacquer.\nSource: Li Gou "Yuan Zhou Xue Ji"',
+                        '【reikensekityo】Small pieces of calligraphy and painting. Small pieces of cloth and paper.\n"零" and "尺" both mean a little. "零絹" refers to small pieces of cloth. "尺楮" refers to small pieces of paper. "楮" is a plant used as a raw material for Japanese paper.',
+                        '【kuhaishii】It is natural to be suspected if you change your usual clothes.\nSource: "Han Feizi"説林･下. Yang Zhu’s younger brother Yang Bu went out in white clothes and was rained on. When he changed into black clothes and returned, his dog did not recognize him and barked. When Yang Bu got angry and tried to hit the dog, Yang Zhu said, "If a white dog came back black, you would also be suspicious."',
+                        '【biitousyoku】Loving beautiful clothes and indulging in temporary food without thinking about the future.\nSource: "Han Shu" "Han Xin Zhuan"',
+                        '【hokentekiso】A metaphor for conflicting aspirations and actions.\nSource: "Shen Jian" "Za Yan・Xia"',
+                        '【akuhatutoho】Being enthusiastic about seeking talented people.\nSource: "Han Shi Wai Zhuan" III. "One bathes three times and grasps hair, one meal three times and spits out food, still fearing to lose the talents of the world."',
                       ];
 
 
 const quizzesData: Record<GenreType, { quizzes: QuestionType[]; keywords: (string | number)[]; devilImage?: StaticImageData; details?: string[] }> = {
-  '数': { quizzes: quizzesNumber, keywords: keywordsNumber, devilImage: numberDevil },
-  '原子': { quizzes: quizzesElement, keywords: keywordsElement, devilImage: elementDevil },
-  '四字熟語': { quizzes: quizzes4Jukugo, keywords: keywords4Jukugo, devilImage: jukugoDevil, details: details4Jukugo },
+  'Number': { quizzes: quizzesNumber, keywords: keywordsNumber, devilImage: numberDevil },
+  'Element': { quizzes: quizzesElement, keywords: keywordsElement, devilImage: elementDevil },
+  'Yojijukugo': { quizzes: quizzes4Jukugo, keywords: keywords4Jukugo, devilImage: jukugoDevil, details: details4Jukugo },
 };
 
 export default genres;

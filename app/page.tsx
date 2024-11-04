@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from 'next/image';
-import { FaGithub } from "react-icons/fa"; // GitHubアイコンのインポート
+import { FaGithub } from "react-icons/fa";
 import genres, { quizzesData, GenreType } from "../data/quiz";
 import numberDevil from "../images/numberDevil.png";
 
@@ -40,11 +40,11 @@ export default function Home() {
     <div className="main-container">
       <h1 className="title">ROTANIKA</h1>
       <p className="description">
-        RotanikaはAkinatorに憧れている魔神です。
+        Rotanika is a genie who admires Akinator.
         <br />
-        Rotanikaの質問に正確に答えて、あなたのお題を答えさせてあげよう！
+        Answer Rotanika's questions accurately and let him guess your topic!
         <br />
-        ただし、Rotanikaはまだ未熟なので、お題はこちらで決めます。
+        However, Rotanika is still inexperienced, so we will decide the topic.
       </p>
       <div className="genre-container">
         {genres.map((genre) => (
@@ -64,11 +64,11 @@ export default function Home() {
         <div className="popup-overlay">
           <div className="popup-content">
             <Image src={getGenreImage()} alt="Sample" className="popup-image" />
-            <h2>お題はこれだ!
-              <br />頑張って我輩に答えを当てさせるんだな</h2>
+            <h2>This is the topic!
+              <br />Do your best to let me guess the answer</h2>
             <h2>{selectedKeyword}</h2>
             <button onClick={handleClosePopup} type="button">
-              クイズを始める
+              Start the quiz
             </button>
           </div>
         </div>

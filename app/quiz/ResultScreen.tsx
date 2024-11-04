@@ -28,15 +28,15 @@ const ResultScreen: React.FC<ResultScreenProps> = ({ isCorrect, keyword, finalAn
       />
       <h1 className="result-title">
         {isCorrect
-          ? "さすが我輩だ！"
-          : "ちゃんと答えてくれなきゃ分からないじゃないか！！"}
+          ? "As expected of me!"
+          : "I can't understand if you don't answer properly!!"}
       </h1>
-      <h2 className="result-subtitle">あなたのお題: {keyword}</h2>
+      <h2 className="result-subtitle">Your topic: {keyword}</h2>
       <h2 className="result-subtitle">
-        Rotanikaの答え: {isCorrect ? finalAnswer : "間違えた...😡"}
+        Rotanika's answer: {isCorrect ? finalAnswer : "Wrong...😡"}
       </h2>
       <Link href="/" passHref legacyBehavior>
-        <a className="result-link">ホームに戻る</a>
+        <a className="result-link">Return to Home</a>
       </Link>
     </div>
   );

@@ -51,9 +51,9 @@ function QuizComponent() {
   const renderNotFound = () => {
     return (
       <div className="not-found-container">
-        <h1 className="not-found-title">ジャンルが見つかりません</h1>
+        <h1 className="not-found-title">Genre not found</h1>
         <Link href="/" passHref legacyBehavior>
-          <a className="not-found-link">ホームに戻る</a>
+          <a className="not-found-link">Return to Home</a>
         </Link>
       </div>
     );
@@ -64,7 +64,7 @@ function QuizComponent() {
       <div className="quiz-container">
         <Image src={getGenreImage()} alt="Sample" className="popup-image" />
         <h1 className="quiz-title">{questions[currentQuestion].question}</h1>
-        <h2 className="quiz-subtitle">お題: {keyword}</h2>
+        <h2 className="quiz-subtitle">Topic: {keyword}</h2>
         <div className="mt-4">
           {questions[currentQuestion].answers.map((option) => (
             <button
