@@ -29,11 +29,11 @@ const ResultScreen: React.FC<ResultScreenProps> = ({ isCorrect, keyword, finalAn
       <h1 className="result-title">
         {isCorrect
           ? "As expected of me!"
-          : "I can't understand if you don't answer properly!!"}
+          : "I can&apos;t understand if you don&apos;t answer properly!!"}
       </h1>
       <h2 className="result-subtitle">Your topic: {keyword}</h2>
       <h2 className="result-subtitle">
-        Rotanika's answer: {isCorrect ? finalAnswer : "Wrong...😡"}
+        Rotanika&apos;s answer: {isCorrect ? finalAnswer : "Wrong...😡"}
       </h2>
       <Link href="/" passHref legacyBehavior>
         <a className="result-link">Return to Home</a>
