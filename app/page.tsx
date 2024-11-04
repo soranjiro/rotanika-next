@@ -36,13 +36,18 @@ export default function Home() {
     return numberDevil;
   };
 
+  const handleLanguageChange = () => {
+    window.location.href = "https://rotanika-next.vercel.app/";
+  };
+
   return (
     <div className="main-container">
       <h1 className="title">ROTANIKA</h1>
       <p className="description">
         Rotanika is a genie who admires Akinator.
         <br />
-          Answer Rotanika&apos;s questions accurately and let him guess your topic!
+        Answer Rotanika&apos;s questions accurately and let him guess your
+        topic!
         <br />
         However, Rotanika is still inexperienced, so we will decide the topic.
       </p>
@@ -54,7 +59,11 @@ export default function Home() {
             className="button genre-button"
             type="button"
           >
-            <Image src={getGenreImage(genre)} alt={genre} className="genre-image" />
+            <Image
+              src={getGenreImage(genre)}
+              alt={genre}
+              className="genre-image"
+            />
             <span className="genre-text">{genre}</span>
           </button>
         ))}
@@ -64,8 +73,11 @@ export default function Home() {
         <div className="popup-overlay">
           <div className="popup-content">
             <Image src={getGenreImage()} alt="Sample" className="popup-image" />
-            <h2>This is the topic!
-              <br />Do your best to let me guess the answer</h2>
+            <h2>
+              This is the topic!
+              <br />
+              Do your best to let me guess the answer
+            </h2>
             <h2>{selectedKeyword}</h2>
             <button onClick={handleClosePopup} type="button">
               Start the quiz
@@ -75,10 +87,18 @@ export default function Home() {
       )}
 
       <footer className="footer">
+        <button
+          onClick={handleLanguageChange}
+          className="button language-button"
+          type="button"
+        >
+          日本語に変える
+        </button>
         <a
           href="https://github.com/soranjiro/rotanika-next"
           target="_blank"
           rel="noopener noreferrer"
+          title="GitHub Repository"
         >
           <FaGithub size={30} />
         </a>
