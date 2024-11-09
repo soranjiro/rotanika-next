@@ -36,6 +36,11 @@ export default function Home() {
     return numberDevil;
   };
 
+  const handleLanguageChange = () => {
+    window.location.href =
+      "https://rotanika-next-pak7yaffv-soranjiros-projects.vercel.app/";
+  };
+
   return (
     <div className="main-container">
       <h1 className="title">ROTANIKA</h1>
@@ -54,7 +59,11 @@ export default function Home() {
             className="button genre-button"
             type="button"
           >
-            <Image src={getGenreImage(genre)} alt={genre} className="genre-image" />
+            <Image
+              src={getGenreImage(genre)}
+              alt={genre}
+              className="genre-image"
+            />
             <span className="genre-text">{genre}</span>
           </button>
         ))}
@@ -64,8 +73,11 @@ export default function Home() {
         <div className="popup-overlay">
           <div className="popup-content">
             <Image src={getGenreImage()} alt="Sample" className="popup-image" />
-            <h2>お題はこれだ!
-              <br />頑張って我輩に答えを当てさせるんだな</h2>
+            <h2>
+              お題はこれだ!
+              <br />
+              頑張って我輩に答えを当てさせるんだな
+            </h2>
             <h2>{selectedKeyword}</h2>
             <button onClick={handleClosePopup} type="button">
               クイズを始める
@@ -75,10 +87,18 @@ export default function Home() {
       )}
 
       <footer className="footer">
+        <button
+          onClick={handleLanguageChange}
+          className="button language-button"
+          type="button"
+        >
+          Change to English
+        </button>
         <a
           href="https://github.com/soranjiro/rotanika-next"
           target="_blank"
           rel="noopener noreferrer"
+          title="GitHub Repository"
         >
           <FaGithub size={30} />
         </a>
