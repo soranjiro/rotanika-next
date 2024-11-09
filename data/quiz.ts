@@ -13,10 +13,18 @@ const getGenres = () => {
 };
 
 const getQuizzesData = () => {
-  return language === "en" ? quizzesDataEn : quizzesDataJa;
+  const combinedData = { ...quizzesDataEn, ...quizzesDataJa };
+  return combinedData;
 };
 
 type GenreType = typeof genresEn[number] | typeof genresJa[number];
 
+interface QuestionType {
+  question: string;
+  answers: string[];
+  nextQuizIndexes: number[];
+  finalAnswer: number[];
+};
+
 export { language, setLanguage, getGenres, getQuizzesData };
-export type { GenreType };
+export type { GenreType, QuestionType };

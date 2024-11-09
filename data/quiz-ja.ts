@@ -2,6 +2,7 @@ import { StaticImageData } from "next/image";
 import numberDevil from "../images/numberDevil.png";
 import elementDevil from "../images/elementDevil.png";
 import jukugoDevil from "../images/jukugoDevil.png";
+import { QuestionType } from "./quiz";
 
 const genres = ['数', '原子', '四字熟語'] as const;
 type GenreType = typeof genres[number];
@@ -12,13 +13,6 @@ type GenreType = typeof genres[number];
  * nextQuizIndexes: 選択肢ごとの次のクイズのインデックス.
  * finalAnswer: 選択肢ごとの最終的な答えのインデックス.(-1の場合は次のクイズへ)
  */
-
-interface QuestionType {
-  question: string;
-  answers: string[];
-  nextQuizIndexes: number[];
-  finalAnswer: number[];
-};
 
 const quizzesNumber: QuestionType[] = [
   {

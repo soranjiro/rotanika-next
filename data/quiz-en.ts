@@ -2,6 +2,7 @@ import { StaticImageData } from "next/image";
 import numberDevil from "../images/numberDevil.png";
 import elementDevil from "../images/elementDevil.png";
 import jukugoDevil from "../images/jukugoDevil.png";
+import { QuestionType } from "./quiz";
 
 const genres = ['Number', 'Element', 'Yojijukugo'] as const;
 type GenreType = typeof genres[number];
@@ -13,12 +14,6 @@ type GenreType = typeof genres[number];
  * finalAnswer: Final answer index for each choice. (-1 means go to the next quiz)
  */
 
-interface QuestionType {
-  question: string;
-  answers: string[];
-  nextQuizIndexes: number[];
-  finalAnswer: number[];
-};
 
 const quizzesNumber: QuestionType[] = [
   {

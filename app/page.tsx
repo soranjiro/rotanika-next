@@ -121,7 +121,7 @@ export default function Home() {
 
       <footer className="footer">
         <div className="language-selector">
-          <label htmlFor="language-select">{currentLanguage === "en" ? "Language: " : "言語: "}</label>
+          <label htmlFor="language-select">{currentLanguage === "en" ? "" : ""}</label>
           <select id="language-select" value={currentLanguage} onChange={handleLanguageChange}>
             <option value="en">English</option>
             <option value="ja">日本語</option>
