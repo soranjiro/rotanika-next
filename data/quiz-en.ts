@@ -1,8 +1,7 @@
-import { StaticImageData } from "next/image";
 import numberDevil from "../images/numberDevil.png";
 import elementDevil from "../images/elementDevil.png";
 import jukugoDevil from "../images/jukugoDevil.png";
-import { QuestionType } from "./quiz";
+import { QuestionType, QuizzesDataType } from "./quiz";
 
 const genres = ['Number', 'Element', 'Yojijukugo'] as const;
 type GenreType = typeof genres[number];
@@ -170,7 +169,7 @@ const details4Jukugo = [
                       ];
 
 
-const quizzesData: Record<GenreType, { quizzes: QuestionType[]; keywords: (string | number)[]; devilImage?: StaticImageData; details?: string[] }> = {
+const quizzesData: QuizzesDataType = {
   'Number': { quizzes: quizzesNumber, keywords: keywordsNumber, devilImage: numberDevil },
   'Element': { quizzes: quizzesElement, keywords: keywordsElement, devilImage: elementDevil },
   'Yojijukugo': { quizzes: quizzes4Jukugo, keywords: keywords4Jukugo, devilImage: jukugoDevil, details: details4Jukugo },

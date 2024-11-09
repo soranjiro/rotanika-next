@@ -1,11 +1,10 @@
-// FILE: page.tsx
 "use client";
 
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { language, setLanguage, getGenres, getQuizzesData, QuestionType, GenreType } from "../../data/quiz";
+import { language, getQuizzesData, QuestionType, GenreType } from "../../data/quiz";
 import ResultScreen from "./ResultScreen";
 import numberDevil from "../../images/numberDevil.png";
 

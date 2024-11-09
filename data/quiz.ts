@@ -1,4 +1,4 @@
-// FILE: quiz.ts
+import { StaticImageData } from 'next/image';
 import genresJa, { quizzesData as quizzesDataJa } from './quiz-ja';
 import genresEn, { quizzesData as quizzesDataEn } from './quiz-en';
 
@@ -13,7 +13,7 @@ const getGenres = () => {
 };
 
 const getQuizzesData = () => {
-  const combinedData = { ...quizzesDataEn, ...quizzesDataJa };
+  const combinedData: QuizzesDataType = { ...quizzesDataEn, ...quizzesDataJa };
   return combinedData;
 };
 
@@ -26,5 +26,14 @@ interface QuestionType {
   finalAnswer: number[];
 };
 
+interface QuizzesDataType {
+  [key: string]: {
+    quizzes: QuestionType[];
+    keywords: (string | number)[];
+    devilImage?: StaticImageData;
+    details?: string[];
+  };
+}
+
 export { language, setLanguage, getGenres, getQuizzesData };
-export type { GenreType, QuestionType };
+export type { GenreType, QuestionType, QuizzesDataType };

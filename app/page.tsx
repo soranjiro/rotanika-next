@@ -1,4 +1,3 @@
-// FILE: page.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -59,7 +58,7 @@ export default function Home() {
           <>
             Rotanika is a genie who admires Akinator.
             <br />
-            Answer Rotanika's questions accurately and let him guess your topic!
+            Answer Rotanika&apos;s questions accurately and let him guess your topic!
             <br />
             However, Rotanika is still inexperienced, so we will decide the
             topic.
