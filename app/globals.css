@@ -153,6 +153,36 @@ body {
   background: #2563eb;
 }
 
+.language-selector {
+  display: flex;
+  align-items: center;
+  margin: 10px 20px;
+}
+
+.language-selector label {
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.language-selector select {
+  padding: 5px 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #3b82f6;
+font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+.language-selector select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
 /* 404ページのスタイル */
 .not-found-container {
   display: flex;

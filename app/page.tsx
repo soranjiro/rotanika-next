@@ -4,9 +4,10 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from 'next/image';
-import { FaGithub } from "react-icons/fa"; // GitHubアイコンのインポート
+import { FaGithub } from "react-icons/fa";
 import { language, setLanguage, getGenres, getQuizzesData, GenreType } from "../data/quiz";
 import numberDevil from "../images/numberDevil.png";
+import "./globals.css";
 
 export default function Home() {
   const [selectedGenre, setSelectedGenre] = useState<GenreType | null>(null);
@@ -46,8 +47,8 @@ export default function Home() {
     return numberDevil;
   };
 
-  const handleLanguageChange = () => {
-    setCurrentLanguage(currentLanguage === "en" ? "ja" : "en");
+  const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setCurrentLanguage(event.target.value);
   };
 
   return (
@@ -119,13 +120,13 @@ export default function Home() {
       )}
 
       <footer className="footer">
-        <button
-          onClick={handleLanguageChange}
-          className="button language-button"
-          type="button"
-        >
-          {currentLanguage === "en" ? "日本語に変更" : "Change to English"}
-        </button>
+        <div className="language-selector">
+          <label htmlFor="language-select">{currentLanguage === "en" ? "Language: " : "言語: "}</label>
+          <select id="language-select" value={currentLanguage} onChange={handleLanguageChange}>
+            <option value="en">English</option>
+            <option value="ja">日本語</option>
+          </select>
+        </div>
         <a
           href="https://github.com/soranjiro/rotanika-next"
           target="_blank"
