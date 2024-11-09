@@ -1,19 +1,26 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { FaGithub } from "react-icons/fa";
-import { language, setLanguage, getGenres, getQuizzesData, GenreType } from "../data/quiz";
-import numberDevil from "../images/numberDevil.png";
-import "./globals.css";
+import { FaGithub } from 'react-icons/fa';
+import {
+  language,
+  setLanguage,
+  getGenres,
+  getQuizzesData,
+  GenreType,
+} from '../data/quiz';
+import numberDevil from '../images/numberDevil.png';
+import './globals.css';
 
 export default function Home() {
   const [selectedGenre, setSelectedGenre] = useState<GenreType | null>(null);
   const [selectedKeyword, setSelectedKeyword] = useState<string | null>(null);
   const [currentLanguage, setCurrentLanguage] = useState<string>(language);
   const [currentGenres, setCurrentGenres] = useState(getGenres());
-  const [currentQuizzesData, setCurrentQuizzesData] = useState(getQuizzesData());
+  const [currentQuizzesData, setCurrentQuizzesData] =
+    useState(getQuizzesData());
   const router = useRouter();
 
   useEffect(() => {
@@ -46,7 +53,9 @@ export default function Home() {
     return numberDevil;
   };
 
-  const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleLanguageChange = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ) => {
     setCurrentLanguage(event.target.value);
   };
 
@@ -54,11 +63,12 @@ export default function Home() {
     <div className="main-container">
       <h1 className="title">ROTANIKA</h1>
       <p className="description">
-        {currentLanguage === "en" ? (
+        {currentLanguage === 'en' ? (
           <>
             Rotanika is a genie who admires Akinator.
             <br />
-            Answer Rotanika&apos;s questions accurately and let him guess your topic!
+            Answer Rotanika&apos;s questions accurately and let him guess your
+            topic!
             <br />
             However, Rotanika is still inexperienced, so we will decide the
             topic.
@@ -96,7 +106,7 @@ export default function Home() {
           <div className="popup-content">
             <Image src={getGenreImage()} alt="Sample" className="popup-image" />
             <h2>
-              {currentLanguage === "en" ? (
+              {currentLanguage === 'en' ? (
                 <>
                   Here is your topic!
                   <br />
@@ -112,7 +122,7 @@ export default function Home() {
             </h2>
             <h2>{selectedKeyword}</h2>
             <button onClick={handleClosePopup} type="button">
-              {currentLanguage === "en" ? "Start Quiz" : "クイズを始める"}
+              {currentLanguage === 'en' ? 'Start Quiz' : 'クイズを始める'}
             </button>
           </div>
         </div>
@@ -120,8 +130,14 @@ export default function Home() {
 
       <footer className="footer">
         <div className="language-selector">
-          <label htmlFor="language-select">{currentLanguage === "en" ? "" : ""}</label>
-          <select id="language-select" value={currentLanguage} onChange={handleLanguageChange}>
+          <label htmlFor="language-select">
+            {currentLanguage === 'en' ? '' : ''}
+          </label>
+          <select
+            id="language-select"
+            value={currentLanguage}
+            onChange={handleLanguageChange}
+          >
             <option value="en">English</option>
             <option value="ja">日本語</option>
           </select>
